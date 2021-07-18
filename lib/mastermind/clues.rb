@@ -16,6 +16,7 @@ module MasterMind
       @key = Array.new(4)
     end
 
+    # @return [String] - An alphabetized string with the clues
     def keys
       exact_match
       near_match
@@ -37,7 +38,5 @@ module MasterMind
       matches = code.intersection(guess).size
       matches.times { key.push("O") }
     end
-
   end
-
 end
