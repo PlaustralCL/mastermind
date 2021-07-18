@@ -4,6 +4,7 @@ require "mastermind/version"
 
 module MasterMind
   # Generates the clues by comparing the guess to the code
+  # @key is a [String]
   class Clues
     attr_reader :guess, :code, :key
 
@@ -16,21 +17,27 @@ module MasterMind
     end
 
     def keys
-      key = []
+      exact_match
+      near_match
+      key.compact.sort.join
+    end
+
+    private
+
+    def exact_match
       code.each_index do |index|
         if code[index] == guess[index]
-          key.push("X")
-          code[index] = "-"
-        elsif code.uniq.include?(guess[index])
-          key.push("O")
-          code = "-"
+          key[index] = "X"
+          code[index] = 0
         end
-
       end
+    end
 
+    def near_match
+      matches = code.intersection(guess).size
+      matches.times { key.push("O") }
+    end
 
-    key.join
   end
 
-end
 end
