@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "mastermind/version"
+# require "mastermind/version"
 
 module MasterMind
   # Generates the clues by comparing the guess to the code
@@ -35,8 +35,8 @@ module MasterMind
     end
 
     def near_match
-      matches = code.intersection(guess).size
-      matches.times { key.push("O") }
+      matches_count = code.intersection(guess).size
+      matches_count.times { key.push("O") }
     end
   end
 end
