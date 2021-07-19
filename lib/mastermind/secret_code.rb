@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module MasterMind
+
   # Generates the secret code, stored as an array
   class SecretCode
     attr_reader :value
