@@ -18,9 +18,7 @@ module MasterMind
       guess.to_i.digits.reverse
     end
 
-    def valid_guess?
-      true if guess =~ /^[1-6]{4}$/
-    end
+    private
 
     # Requests guess until a valid guess is received
     # @return [String] @guess
@@ -32,6 +30,10 @@ module MasterMind
 
         puts "That was not a valid guess. Please try again."
       end
+    end
+
+    def valid_guess?
+      true if guess =~ /^[1-6]{4}$/
     end
 
   end
