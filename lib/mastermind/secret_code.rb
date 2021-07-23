@@ -6,6 +6,7 @@ module MasterMind
   class SecretCode
     attr_reader :value
 
+    # @param [Array] value
     def initialize(value = random_code)
       @value = value
     end
