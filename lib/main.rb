@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "mastermind/game"
-require_relative "mastermind/secret_code"
+require_relative "./mastermind/game"
+require_relative "./mastermind/computer_player"
+require_relative "./mastermind/human_player"
 
 puts "Welcome to Master Mind!"
 puts "You will be the code breaker, breaking the code created by the computer"
@@ -11,8 +12,9 @@ puts "O = Right number in the wrong position"
 puts ""
 
 rounds = 3
-code = MasterMind::SecretCode.new([1, 2, 3, 4]).value
-game = MasterMind::Game.new(code, rounds, MasterMind::HumanPlayer.new)
+code_maker = MasterMind::ComputerPlayer.new([1, 2, 3, 4])
+code_breaker = MasterMind::HumanPlayer.new
+game = MasterMind::Game.new(rounds: rounds, code_breaker: code_breaker, code_maker: code_maker)
 game.play
 puts ""
-puts "The secret code was #{code.join}"
+puts "The secret code was #{code_maker.code.join}"

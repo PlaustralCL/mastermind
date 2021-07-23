@@ -7,8 +7,8 @@ module MasterMind
   class ComputerPlayer
     attr_reader :code
 
-    def initialize
-      @code = SecretCode.new([1, 2, 3, 4]).value
+    def initialize(code = SecretCode.new.value)
+      @code = code
     end
   end
 end

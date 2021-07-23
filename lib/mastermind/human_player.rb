@@ -15,7 +15,8 @@ module MasterMind
     def make_guess
       receive_guess
       # convert guess to an array
-      guess.to_i.digits.reverse
+      @guess = guess.to_i.digits.reverse
+      @guess
     end
 
     private
@@ -24,7 +25,7 @@ module MasterMind
     # @return [String] @guess
     def receive_guess
       loop do
-        print "Please enter your guess: "
+        puts "Please enter your guess: "
         @guess = gets.chomp
         return guess if valid_guess?
 
