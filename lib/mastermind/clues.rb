@@ -6,7 +6,11 @@ module MasterMind
   # Generates the clues by comparing the guess to the code
   # @key is a [String]
   class Clues
+    private
+
     attr_reader :guess, :code, :key
+
+    public
 
     # @param [Array] guess - The guess from the human or computer player
     # @param [Array] code - Should be value property of the secretCode object
