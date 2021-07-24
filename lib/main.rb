@@ -11,8 +11,8 @@ puts "X = Right number in the right position"
 puts "O = Right number in the wrong position"
 puts ""
 
-rounds = 3
-code_maker = MasterMind::ComputerPlayer.new([1, 2, 3, 4])
+rounds = 12
+code_maker = MasterMind::ComputerPlayer.new
 code_breaker = MasterMind::HumanPlayer.new
 game = MasterMind::Game.new(rounds: rounds, code_breaker: code_breaker, code_maker: code_maker)
 game.play
