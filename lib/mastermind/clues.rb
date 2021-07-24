@@ -17,7 +17,7 @@ module MasterMind
     def initialize(guess:, code:)
       @guess = [].replace(guess)
       @code = [].replace(code)
-      @key = Array.new(4)
+      @key = Array.new
     end
 
     # @return [String] - An alphabetized string with the clues
@@ -32,15 +32,28 @@ module MasterMind
     def exact_match
       code.each_index do |index|
         if code[index] == guess[index]
-          key[index] = "X"
+          key.push("X")
           code[index] = 0
+          guess[index] = 99
         end
       end
     end
 
     def near_match
-      matches_count = code.intersection(guess).size
-      matches_count.times { key.push("O") }
+      (0..3).each do |guess_index|
+        compare_for_near_match(guess_index)
+      end
     end
+
+    def compare_for_near_match(guess_index)
+      (0..3).each do |code_index|
+        if guess[guess_index] == code[code_index]
+          key.push("O")
+          code[code_index] = 0
+          break
+        end
+      end
+    end
+
   end
 end

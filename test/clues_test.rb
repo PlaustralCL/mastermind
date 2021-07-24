@@ -52,11 +52,19 @@ class CluesTest < Minitest::Test
     assert_equal(expect, clue.keys)
   end
 
-  def kesy_works_combo_matches
+  def test_works_combo_matches
     code = 3123.digits.reverse
     guess = 2153.digits.reverse
     clue = MasterMind::Clues.new(guess: guess, code: code)
     expect = "OXX"
+    assert_equal(expect, clue.keys)
+  end
+
+  def test_works_for_multiple_near_miss_of_same_value
+    code = 4161.digits.reverse
+    guess = 1313.digits.reverse
+    clue = MasterMind::Clues.new(guess: guess, code: code)
+    expect = "OO"
     assert_equal(expect, clue.keys)
   end
 end
