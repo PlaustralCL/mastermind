@@ -8,16 +8,20 @@ module MasterMind
     attr_reader :guess, :code
 
     def initialize
-      @guess = ""
+      @guess = []
       @code = []
     end
 
     # @return [Array]
-    def make_guess
+    def make_guess(secret_code = nil)
       receive_guess
       # convert guess to an array
       @guess = guess.to_i.digits.reverse
       @guess
+    end
+
+    def first_guess
+      make_guess
     end
 
     def make_code
@@ -46,6 +50,7 @@ module MasterMind
       loop do
         puts "Please enter your code: "
         @code = gets.chomp
+        puts ""
         return code if valid_code?
 
         puts "That was not a valid code. Please try again."

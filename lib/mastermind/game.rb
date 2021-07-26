@@ -20,8 +20,11 @@ module MasterMind
     end
 
     def play
+      code_breaker.first_guess
+      @rounds += 1
+      puts "#{Clues.new(guess: code_breaker.guess, code: code_maker.code).keys}\n\n"
       rounds.times do |attempt|
-        print "Attempt #{attempt + 1}. "
+        print "Attempt #{attempt + 2}. "
         play_one_round
         break if Clues.new(guess: code_breaker.guess, code: code_maker.code).keys == "XXXX"
       end
@@ -29,8 +32,10 @@ module MasterMind
     end
 
     def play_one_round
-      code_breaker.make_guess
-      puts "#{Clues.new(guess: code_breaker.guess, code: code_maker.code).keys}\n\n"
+      secret_code = code_maker.code
+      code_breaker.make_guess(secret_code)
+      # Show the new keys after the guess has been made
+      puts "#{Clues.new(guess: code_breaker.guess, code: secret_code).keys}\n\n"
     end
 
     def game_result
