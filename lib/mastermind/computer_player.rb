@@ -8,7 +8,7 @@ module MasterMind
     attr_reader :code, :guess, :solution_set
 
     def initialize
-      @guess = [1, 1, 2, 2]
+      @guess = [0, 0, 0, 0]
       @code = []
       @solution_set = []
       initial_solution_set
@@ -30,11 +30,16 @@ module MasterMind
 
     def first_guess
       puts "Please enter your guess: "
+      @guess = [1, 1, 2, 2]
       puts guess.join
-      @guess
     end
 
     def make_guess(secret_code)
+      if guess == [0, 0, 0, 0]
+        first_guess
+        return guess
+      end
+
       clue = Clues.new(guess: @guess, code: secret_code).keys
       @solution_set = @solution_set.map do |num|
         Clues.new(guess: num.digits.reverse, code: @guess).keys == clue ? num : nil

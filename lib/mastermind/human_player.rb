@@ -20,10 +20,6 @@ module MasterMind
       @guess
     end
 
-    def first_guess
-      make_guess
-    end
-
     def make_code
       receive_code
       # convert code to an array
