@@ -20,7 +20,8 @@ module MasterMind
     end
 
     def play
-      rounds.times do
+      rounds.times do |attempt|
+        print "Attempt #{attempt + 1}. "
         play_one_round
         break if Clues.new(guess: code_breaker.guess, code: code_maker.code).keys == "XXXX"
       end

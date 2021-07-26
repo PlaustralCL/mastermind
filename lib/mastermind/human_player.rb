@@ -5,10 +5,11 @@
 module MasterMind
   # Behavior and state for the human player: guesses or codes
   class HumanPlayer
-    attr_reader :guess
+    attr_reader :guess, :code
 
     def initialize
       @guess = ""
+      @code = []
     end
 
     # @return [Array]
@@ -17,6 +18,14 @@ module MasterMind
       # convert guess to an array
       @guess = guess.to_i.digits.reverse
       @guess
+    end
+
+    def make_code
+      receive_code
+      # convert code to an array
+      @code = code.to_i.digits.reverse
+      @code
+
     end
 
     private
@@ -33,8 +42,22 @@ module MasterMind
       end
     end
 
+    def receive_code
+      loop do
+        puts "Please enter your code: "
+        @code = gets.chomp
+        return code if valid_code?
+
+        puts "That was not a valid code. Please try again."
+      end
+    end
+
     def valid_guess?
       true if guess =~ /^[1-6]{4}$/
+    end
+
+    def valid_code?
+      true if code =~ /^[1-6]{4}$/
     end
 
   end

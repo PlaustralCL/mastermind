@@ -5,6 +5,7 @@
 module MasterMind
   # Generates the clues by comparing the guess to the code
   # @key is a [String]
+  # The #keys method is what is used to generate the cludes
   class Clues
     private
 
