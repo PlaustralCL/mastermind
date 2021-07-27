@@ -12,8 +12,10 @@ module MasterMind
       @code = []
     end
 
+    # The * parameter is a placeholder since the computer player version needs
+    # be passed the secret code.
     # @return [Array]
-    def make_guess(secret_code = nil)
+    def make_guess(*)
       receive_guess
       # convert guess to an array
       @guess = guess.to_i.digits.reverse
@@ -25,7 +27,6 @@ module MasterMind
       # convert code to an array
       @code = code.to_i.digits.reverse
       @code
-
     end
 
     private
@@ -42,15 +43,20 @@ module MasterMind
       end
     end
 
+    # Loops until a valid code is entered
     def receive_code
       loop do
-        puts "Please enter your code: "
-        @code = gets.chomp
-        puts ""
+        enter_code
         return code if valid_code?
 
         puts "That was not a valid code. Please try again."
       end
+    end
+
+    def enter_code
+      puts "Please enter your code: "
+      @code = gets.chomp
+      puts ""
     end
 
     def valid_guess?
