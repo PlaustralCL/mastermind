@@ -20,9 +20,6 @@ module MasterMind
     end
 
     def play
-      # code_breaker.first_guess
-      # @rounds += 1
-      # puts "#{Clues.new(guess: code_breaker.guess, code: code_maker.code).keys}\n\n"
       rounds.times do |attempt|
         print "Attempt #{attempt + 1}. "
         play_one_round
