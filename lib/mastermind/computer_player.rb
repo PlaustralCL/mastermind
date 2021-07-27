@@ -32,6 +32,7 @@ module MasterMind
     private
 
     def initial_solution_set
+      # Assumes a 4 digit code using only the numbers 1 - 6
       (1111..6666).each do |num|
         @solution_set.push(num)
       end
