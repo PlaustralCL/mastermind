@@ -14,7 +14,7 @@ module MasterMind
 
     # The * parameter is a placeholder since the computer player version needs
     # be passed the secret code.
-    # @return [Array]
+    # @return [Array] @guess - The current guesses
     def make_guess(*)
       receive_guess
       # convert guess to an array
@@ -22,6 +22,7 @@ module MasterMind
       @guess
     end
 
+    # @return [Array] @code - The secret code
     def make_code
       receive_code
       # convert code to an array
@@ -53,19 +54,21 @@ module MasterMind
       end
     end
 
+    # Prompt for and allow input of secret code
     def enter_code
       puts "Please enter your code: "
       @code = gets.chomp
       puts ""
     end
 
+    # Checks to see if the guess is 4 digits that using only the numbers 1 - 6
     def valid_guess?
       true if guess =~ /^[1-6]{4}$/
     end
 
+    # Checks to see if the code is 4 digits that using only the numbers 1 - 6
     def valid_code?
       true if code =~ /^[1-6]{4}$/
     end
-
   end
 end

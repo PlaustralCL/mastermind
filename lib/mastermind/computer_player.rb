@@ -20,6 +20,7 @@ module MasterMind
       initial_solution_set
     end
 
+    # @return [Array] @code - An array representing the secret code
     def make_code
       @code = SecretCode.new.value
       @code
@@ -29,6 +30,7 @@ module MasterMind
     # simplify the process
     # @param [Array] secret_code - The actual code that is trying to be solved.
     # This is how the computer knows what the clue is.
+    # @return [Array] @guess - An array representing the current guess
     def make_guess(secret_code)
       if guess == [0, 0, 0, 0]
         first_guess
