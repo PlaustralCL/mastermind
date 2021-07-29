@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./clues"
-require_relative "./guess"
-require_relative "./secret_code"
-require_relative "./human_player"
+require_relative "../mastermind"
 
 module MasterMind
   # Controls the flow of the game, tracking each round
