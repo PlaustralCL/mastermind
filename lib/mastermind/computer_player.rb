@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./secret_code"
+require_relative "../mastermind.rb"
 
 module MasterMind
   # Behavior and state for the computer player: guesses and codes
