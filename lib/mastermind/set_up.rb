@@ -5,7 +5,13 @@ require_relative "../mastermind"
 module MasterMind
   # Do the initial set up for the game, such as assigning roles
   class SetUp
-    attr_reader :code_maker, :code_breaker, :code
+    private
+
+    attr_reader :code_maker, :code_breaker
+
+    public
+
+    attr_reader :code
 
     def initialize
       @code_maker = ComputerPlayer.new
@@ -27,6 +33,8 @@ module MasterMind
       choice == "y"
     end
 
+    private
+
     def welcome
       intro = <<~HEREDOC
         Welcome to Master Mind!
@@ -36,12 +44,10 @@ module MasterMind
         O = Right number in the wrong position
         You have 12 attempts to break the code.
       HEREDOC
-  
+
       puts intro
       puts ""
     end
-
-    private
 
     def choose_role
       print "Do you want to be the (1) Code Breaker or (2) Code Maker? Please enter 1 or 2: "
@@ -49,6 +55,7 @@ module MasterMind
       case role_choice
       when 2
         selected_code_maker
+      # Any value other than 2 defaults to the code_breaker
       else
         selected_code_breaker
       end
@@ -65,7 +72,5 @@ module MasterMind
       @code_breaker = MasterMind::HumanPlayer.new
       @code_maker = MasterMind::ComputerPlayer.new
     end
-
-
   end
 end
