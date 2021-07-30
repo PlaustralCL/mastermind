@@ -1,36 +1,30 @@
 # Mastermind
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mastermind`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Description
+Mastermind is a code breaking game between two players. One player creates a
+secret code and the second person attempts to find the code. After each guess,
+clues will be provided to guide the code breaker.
 
-TODO: Delete this and the text above, and describe your gem
+The game is traditionally played with colored pegs used for the code and smaller
+red/ white pegs used to provide the clues. Since this is a game for the command line
+using numbers instead of color names felt more practical.
 
-## Installation
+This project was developed as part of [The Odin Project](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-programming/lessons/mastermind).
 
-Add this line to your application's Gemfile:
+You can see a live demo on [Replit.com](https://www.replit.com)
 
-```ruby
-gem 'mastermind'
-```
+The [code repository is on github](https://github.com/PlaustralCL/mastermind)
 
-And then execute:
+## Reflection
+* The algorithm for giving the proper clues was surprisingly tricky
+* The algorithm for solving Mastermind is fairly well known, but the step that says
+"r emove from S any code that would not give the same response if the current guess were the code."
+took a while to figure out how to implement. In the end, I compared the clues from
+the current guess to each of the remaining possibilities in the set and removed the
+ones that did not give the same clues. It initially felt like cheating, but since
+you are not comparing the numbers to the actual code you are just taking advantage
+of the computers best skills, quickly ding repetitive tasks.
+* Still trying to get the hang of OOP. The use of objects and classes to organize my code.
 
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install mastermind
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mastermind.
-
+## Future opportunities
+* Add color to enhance the experience (but keep the numbers for data entry)
