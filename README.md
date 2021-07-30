@@ -11,7 +11,7 @@ using numbers instead of color names felt more practical.
 
 This project was developed as part of [The Odin Project](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-programming/lessons/mastermind).
 
-You can see a live demo on [Replit.com](https://www.replit.com)
+You can see a live demo on [Replit.com](https://replit.com/@PlaustralCL/mastermind). Please be patient as it may take a few seconds to load.
 
 The [code repository is on github](https://github.com/PlaustralCL/mastermind)
 
