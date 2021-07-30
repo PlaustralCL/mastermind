@@ -38,7 +38,7 @@ module MasterMind
     def welcome
       intro = <<~HEREDOC
         Welcome to Master Mind!
-        You will pit your wits against the computer but either attempting to
+        You will pit your wits against the computer by either attempting to
         break the computer's code or by devising an unbreakable code to
         test the computer's skills.
         After each guess you will be provided clues:
