@@ -25,6 +25,8 @@ ones that did not give the same clues. It initially felt like cheating, but sinc
 you are not comparing the numbers to the actual code you are just taking advantage
 of the computers best skills, quickly ding repetitive tasks.
 * Still trying to get the hang of OOP. The use of objects and classes to organize my code.
+* I took the opportunity to learn a little of Minitest. This helped in the generation
+of the secret code and the clues.
 
 ## Future opportunities
 * Add color to enhance the experience (but keep the numbers for data entry)
