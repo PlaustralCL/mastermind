@@ -38,11 +38,13 @@ module MasterMind
     def welcome
       intro = <<~HEREDOC
         Welcome to Master Mind!
-        You will be the code breaker, breaking the code created by the computer
+        You will pit your wits against the computer but either attempting to
+        break the computer's code or by devising an unbreakable code to
+        test the computer's skills.
         After each guess you will be provided clues:
         X = Right number in the right position
         O = Right number in the wrong position
-        You have 12 attempts to break the code.
+        The code breaker will have 12 attempts to break the code.
       HEREDOC
 
       puts intro
