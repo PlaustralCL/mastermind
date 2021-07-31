@@ -36,9 +36,9 @@ module MasterMind
     # @return [String] @guess
     def receive_guess
       loop do
-        puts "Please enter your guess: "
+        puts "Please enter your guess (a 4 digit number using 1-6): "
         @guess = gets.chomp
-        return guess if valid_guess?
+        return guess if valid_input?(guess)
 
         puts "That was not a valid guess. Please try again."
       end
@@ -48,7 +48,7 @@ module MasterMind
     def receive_code
       loop do
         enter_code
-        return code if valid_code?
+        return code if valid_input?(code)
 
         puts "That was not a valid code. Please try again."
       end
@@ -56,19 +56,14 @@ module MasterMind
 
     # Prompt for and allow input of secret code
     def enter_code
-      puts "Please enter your code: "
+      puts "Please enter a 4 digit number using 1-6:"
       @code = gets.chomp
       puts ""
     end
 
     # Checks to see if the guess is 4 digits that using only the numbers 1 - 6
-    def valid_guess?
-      true if guess =~ /^[1-6]{4}$/
-    end
-
-    # Checks to see if the code is 4 digits that using only the numbers 1 - 6
-    def valid_code?
-      true if code =~ /^[1-6]{4}$/
+    def valid_input?(input)
+      input =~ /^[1-6]{4}$/
     end
   end
 end
