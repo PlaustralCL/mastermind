@@ -5,7 +5,11 @@ require_relative "../mastermind"
 module MasterMind
   # Controls the flow of the game, tracking each round
   class Game
+    private
+
     attr_reader :rounds, :code_breaker, :code_maker
+
+    public
 
     # @param [Integer] rounds - The number of attempts to find the secret code
     # @param [Object] code_breaker - The object (Human or computer player)
@@ -20,20 +24,26 @@ module MasterMind
       rounds.times do |attempt|
         print "Attempt #{attempt + 1}. "
         play_one_round
-        break if Clues.new(guess: code_breaker.guess, code: code_maker.code).keys == "XXXX"
+        break if new_clue == "XXXX"
       end
       puts game_result
     end
+
+    private
 
     def play_one_round
       secret_code = code_maker.code
       code_breaker.make_guess(secret_code)
       # Show the new keys after the guess has been made
-      puts "#{Clues.new(guess: code_breaker.guess, code: secret_code).keys}\n\n"
+      puts "#{new_clue}\n\n"
     end
 
     def game_result
-      Clues.new(guess: code_breaker.guess, code: code_maker.code).keys == "XXXX" ? win_message : lost_message
+      new_clue == "XXXX" ? win_message : lost_message
+    end
+
+    def new_clue
+      Clues.new(guess: code_breaker.guess, code: code_maker.code).keys
     end
 
     def choose_role
@@ -47,6 +57,5 @@ module MasterMind
     def lost_message
       "You lost. Better luck next time.\n"
     end
-
   end
 end
